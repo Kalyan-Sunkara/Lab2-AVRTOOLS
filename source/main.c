@@ -42,13 +42,16 @@ int main(void) {
 	}
 	if((tmpC - tmpA) > 80){
 		tmpD = tmpD | 0x02;
+		tmpD = tmpD & 0xFE;
 	}
 	else if((tmpA - tmpC) > 80){
 		tmpD = tmpD | 0x02;
+		tmpD = tmpD & 0xFE;
 	}
 	else{
 		tmpD = tmpD & 0xFD;
 	}
+	total = total >> 2;
 	total = total & 0xFC;
 	PORTD = tmpD | total;
 	}
